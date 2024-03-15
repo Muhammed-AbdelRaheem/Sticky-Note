@@ -1,0 +1,21 @@
+i{
+    top: 20px;
+    right: 10px;
+}
+
+.card{
+    background-image: url(../../assets/images/9337359.jpg);
+    background-size: cover;
+    background-position: center;
+    /* background-repeat: repeat; */
+    transition: all .5s;
+}
+
+
+.card:hover{
+transform: scale(1.02);
+z-index: 5555 !important
+}
+
+
+

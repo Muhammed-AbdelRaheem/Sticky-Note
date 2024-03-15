@@ -1,0 +1,31 @@
+<nav class="navbar main-color navbar-expand-lg shadow fixed-top">
+    <div class="container ">
+      <a class="navbar-brand" routerLink="/home">
+        <h1 class="h2">
+          Notes
+        </h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+        
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-gear fa-spin fa-2xl"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li *ngIf="!flag" ><a class="dropdown-item" routerLinkActive="text-bg-secondary" routerLink="/login">Login</a></li>
+              <li *ngIf="!flag"><a class="dropdown-item" routerLink="/register">Register</a></li>
+            <li *ngIf="flag" (click)="logOut()" routerLinkActive="bg-info" routerLink="/login"    class="pointer" >
+              <span >
+                Logout
+              </span>
+            </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

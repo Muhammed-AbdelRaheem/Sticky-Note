@@ -1,0 +1,72 @@
+<section class="shadow rounded-4  p-4 my-4 w-50 mx-auto">
+    <h1 class="text-black text-center ">register Now</h1>
+    <form [formGroup]="signUpForm" (ngSubmit)="handleForm(signUpForm)" class="w-50 mx-auto">
+        <div class="form-item">
+            <label for="name" >name</label>
+            <input id="name" type="text" placeholder="name" formControlName="name" class="form-control form-control-sm mb-2">
+            <div *ngIf="signUpForm.get('name')?.errors &&signUpForm.get('name')?.touched"
+                class="alert alert-danger w-50 small p-1  mx-auto">
+                <p *ngIf="signUpForm.get('name')?.getError('required')" class="m-0"> Name is Required</p>
+                <p *ngIf="signUpForm.get('name')?.getError('minlength')" class="m-0">Name Min length 3 charcter</p>
+                <p *ngIf="signUpForm.get('name')?.getError('maxlength')" class="m-0">Name Max length 10 charcter</p>
+
+            </div>
+        </div>
+        <div class="form-item">
+            <label for="email" >email</label>
+            <input id="email" type="email" placeholder="email" formControlName="email" class="form-control form-control-sm mb-2">
+            <div *ngIf="signUpForm.get('email')?.errors &&signUpForm.get('email')?.touched"
+            class="alert alert-danger w-50 small p-1  mx-auto">
+            <p *ngIf="signUpForm.get('email')?.getError('required')" class="m-0"> email is Required</p>
+            <p *ngIf="signUpForm.get('email')?.getError('email')" class="m-0">email is Invailed</p>
+        </div>
+        </div>
+        <div class="form-item">
+            <label for="password" >password</label>
+            <input id="password" type="password" placeholder="password" formControlName="password"
+                class="form-control form-control-sm mb-2">
+                <div *ngIf="signUpForm.get('password')?.errors &&signUpForm.get('password')?.touched"
+                class="alert alert-danger w-50 small p-1  mx-auto">
+                <p *ngIf="signUpForm.get('password')?.getError('required')" class="m-0"> password is Required</p>
+                <p *ngIf="signUpForm.get('password')?.getError('pattern')" class="m-0">password is Invailed</p>
+            </div>
+        </div>
+        <div class="form-item">
+            <label for="age" >age</label>
+            <input id="age" type="number" placeholder="age" formControlName="age" class="form-control form-control-sm mb-2">
+            <div *ngIf="signUpForm.get('age')?.errors &&signUpForm.get('age')?.touched"
+            class="alert alert-danger w-50 small p-1  mx-auto">
+            <p *ngIf="signUpForm.get('age')?.getError('required')" class="m-0"> age is Required</p>
+            <p *ngIf="signUpForm.get('age')?.getError('age')" class="m-0">age must be a number</p>
+        </div>
+       
+        </div>
+
+        <div class="form-item">
+            <label for="phone" >phone</label>
+            <input id="phone" type="phone" placeholder="phone" formControlName="phone" class="form-control form-control-sm mb-2">
+            <div *ngIf="signUpForm.get('phone')?.errors &&signUpForm.get('phone')?.touched"
+            class="alert alert-danger w-50 small p-1  mx-auto">
+            <p *ngIf="signUpForm.get('phone')?.getError('required')" class="m-0"> phone is Required</p>
+            <p *ngIf="signUpForm.get('phone')?.getError('pattern')" class="m-0">phone must be egyption number</p>
+        </div>
+       
+        </div>
+
+        <div *ngIf="msg" class="alert alert-danger w-50 small p-1  mx-auto">
+      {{msg}}
+      
+        </div>
+        <div class="d-flex justify-content-between  justify-content-center">
+            
+        <button  [disabled]="signUpForm.invalid" class="btn btn-secondary mt-3 w-50 mx-auto"> Register
+            <span *ngIf="isloading">
+                <i class="fa fa-spin fa-spinner"></i>
+            </span> 
+        
+        
+        </button>
+        </div>
+        
+    </form>
+</section>
